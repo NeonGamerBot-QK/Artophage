@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Proof of Work</title>
+</head>
+<body>
+  <h1>Solving Proof of Work...</h1>
+  <script>
+    async function sha256(message) {
+      const encoder = new TextEncoder();
+      const data = encoder.encode(message);
+      const hashBuffer = await crypto.subtle.digest('SHA-256', data);
+      const hashArray = Array.from(new Uint8Array(hashBuffer));
+      return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+    }
+
+    async function solvePoW(difficulty = 1) {
+      const targetPrefix = '0'.repeat(difficulty);
+      const baseData = 'PoW-' + Math.random().toString(36).slice(2);
+      let nonce = 0;
+
+      while (true) {
+        const data = baseData + nonce;
+        const hash = await sha256(data);
+
+        if (hash.startsWith(targetPrefix)) {
+          const message = `✅ Proof of Work Solved!\n\nNonce: ${nonce}\nHash: ${hash}`;
+          alert(message);
+          console.log(message);
+          break;
+        }
+
+        nonce++;
+
+        // Optional: prevent UI freeze every 10k tries
+        if (nonce % 10000 === 0) await new Promise(r => setTimeout(r, 0));
+      }
+    }
+
+    solvePoW(4); // Difficulty = 1 (very quick)
+  </script>
+</body>
+</html>
