@@ -13,7 +13,10 @@
     "@nuxt/scripts": "^0.11.0",
     "@nuxtjs/supabase": "1.5.1",
     "@nuxtjs/turnstile": "1.0.0",
+    "@tailwindcss/vite": "^4.1.7",
+    "daisyui": "^5.0.35",
     "nuxt": "^3.17.3",
+    "tailwindcss": "^4.1.7",
     "vue": "^3.5.13",
     "vue-router": "^4.5.1"
   }
