@@ -1,5 +1,9 @@
+<script setup lang="ts">
+import Navbar from './components/Navbar'
+</script>
 <template>
   <div>
-    hi
+    <Navbar />
+    <router-view />
   </div>
 </template>
