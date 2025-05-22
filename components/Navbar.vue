@@ -3,8 +3,11 @@ import  md5  from "md5"
 let isLoggedIn = false;
 
 let avatarURL = null;
+const user = useSupabaseUser()
+console.log(user.value, 'user')
+isLoggedIn = Boolean(user.value)
 if(isLoggedIn) {
-let userData = { email: "neon@saahild.com"}
+let userData = user.value
 
   avatarURL = `https://gravatar.com/avatar/${md5(userData.email)}?d=identicon`;
 }
@@ -31,11 +34,11 @@ let userData = { email: "neon@saahild.com"}
       </ul>
       </div>
       <div v-else>
- <div tabindex="0" role="button" class="btn btn-ghost btn-circle avatar">
+ <div>
       <ul
         tabindex="0"
-        class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-        <li><a href="/api/login">Login</a></li>
+        class=" bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+        <li><a href="/login">Login</a></li>
       </ul>
     </div>
       </div>
