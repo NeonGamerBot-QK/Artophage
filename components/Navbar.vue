@@ -1,11 +1,9 @@
 <script setup lang="ts">
 import  md5  from "md5"
-let isLoggedIn = false;
-
-let avatarURL = null;
 const user = useSupabaseUser()
+let isLoggedIn = Boolean(user.value);
+let avatarURL = null;
 console.log(user.value, 'user')
-isLoggedIn = Boolean(user.value)
 if(isLoggedIn) {
 let userData = user.value
 
@@ -16,6 +14,7 @@ let userData = user.value
     <div class="navbar bg-base-100 shadow-sm">
   <div class="flex-1">
     <a class="btn btn-ghost text-xl">Artophage</a>
+    <!-- <img src="" /> -->
   </div>
   <div class="flex-none">
     <div class="dropdown dropdown-end">

@@ -7,11 +7,17 @@ export default defineNuxtConfig({
   hub: {
     database: true
   },
+  vite: {
+    plugins: [tailwindcss()]
+  },
   supabase: {
     redirect: false,
   },
-vite: {
-  plugins: [tailwindcss()],
-},
+  runtimeConfig: {
+    public: {
+      supabaseUrl: process.env.SUPABASE_URL,
+      supabaseKey: process.env.SUPABASE_KEY, // Use correct key
+    }
+  },
   css: ["~/assets/css/app.css"],
 })

@@ -15,7 +15,7 @@ const handleLogin = async () => {
   } finally {
     loading.value = false
   }
-}z
+}
 </script>
 
 <template>
