@@ -1,7 +1,6 @@
-# Nuxt Minimal Starter
-
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
-
+# Artopgae [ WIP]
+![banner](./assets/art/banner%201.png)
+I love eating art and displaying it!
 ## Setup
 
 Make sure to install dependencies:
