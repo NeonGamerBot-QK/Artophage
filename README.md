@@ -1,6 +1,8 @@
 # Artopgae [ WIP]
+
 ![banner](./assets/art/banner%201.png)
 I love eating art and displaying it!
+
 ## Setup
 
 Make sure to install dependencies:
