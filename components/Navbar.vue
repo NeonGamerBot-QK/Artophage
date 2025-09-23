@@ -1,47 +1,51 @@
 <script setup lang="ts">
-import  md5  from "md5"
-const user = { value: null }
+import md5 from "md5";
+const user = { value: null };
 let isLoggedIn = Boolean(user.value);
 let avatarURL = null;
-console.log(user.value, 'user')
-if(isLoggedIn) {
-let userData = user.value
+console.log(user.value, "user");
+if (isLoggedIn) {
+  let userData = user.value;
 
   avatarURL = `https://gravatar.com/avatar/${md5(userData.email)}?d=identicon`;
 }
 </script>
 <template>
-    <div class="navbar bg-base-100 shadow-sm">
-  <div class="flex-1">
-    <a class="btn btn-ghost text-xl">Artophage</a>
-    <!-- <img src="" /> -->
-  </div>
-  <div class="flex-none">
-    <div class="dropdown dropdown-end">
-      <div v-if="isLoggedIn">
-        <div tabindex="0" role="button" class="btn btn-ghost btn-circle avatar">
-        <div class="w-10 rounded-full">
-          <img
-            alt="Your avatar"
-            :src="avatarURL" />
+  <div class="navbar bg-base-100 shadow-sm">
+    <div class="flex-1">
+      <a class="btn btn-ghost text-xl">Artophage</a>
+      <!-- <img src="" /> -->
+    </div>
+    <div class="flex-none">
+      <div class="dropdown dropdown-end">
+        <div v-if="isLoggedIn">
+          <div
+            tabindex="0"
+            role="button"
+            class="btn btn-ghost btn-circle avatar"
+          >
+            <div class="w-10 rounded-full">
+              <img alt="Your avatar" :src="avatarURL" />
+            </div>
+          </div>
+          <ul
+            tabindex="0"
+            class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
+          >
+            <li><a href="/api/logout">Logout</a></li>
+          </ul>
+        </div>
+        <div v-else>
+          <div>
+            <ul
+              tabindex="0"
+              class="bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
+            >
+              <li><a href="/login">Login</a></li>
+            </ul>
+          </div>
         </div>
       </div>
-      <ul
-        tabindex="0"
-        class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-        <li><a href="/api/logout">Logout</a></li>
-      </ul>
-      </div>
-      <div v-else>
- <div>
-      <ul
-        tabindex="0"
-        class=" bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-        <li><a href="/login">Login</a></li>
-      </ul>
-    </div>
-      </div>
     </div>
   </div>
-</div>
 </template>
