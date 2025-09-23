@@ -6,7 +6,7 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   hub: {
     database: true,
-    blob: true
+    blob: true,
   },
   vite: {
     plugins: [tailwindcss()],
