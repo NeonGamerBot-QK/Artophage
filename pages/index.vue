@@ -13,9 +13,9 @@ const cards = ref<any[]>([]);
 onMounted(async () => {
   // const sql = usePostgres();
   // const data = await sql`select * from art;`;
-//  else {
-    // console.log(data);
-    // cards.value = data;
+  //  else {
+  // console.log(data);
+  // cards.value = data;
   // }
 });
 </script>
