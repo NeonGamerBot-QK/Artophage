@@ -1,25 +1,24 @@
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
-import { createClient } from '@supabase/supabase-js'
+import { ref, onMounted } from "vue";
 
 // Get runtime config
-const config = useRuntimeConfig()
-console.log("creating config", config.public)
-let supabase = useSupabaseClient();
+const config = useRuntimeConfig();
+console.log("creating config", config.public);
 
 // Reactive list of cards
-const cards = ref<any[]>([])
+const cards = ref<any[]>([]);
 
 // Load data when component is mounted
 onMounted(async () => {
-  const { data, error } = await supabase.from('art').select('*')
+  const sql = usePostgres();
+  const { data, error } = await sql`select * from art;`;
   if (error) {
-    console.error('Supabase error:', error)
+    console.error("Supabase error:", error);
   } else {
-    console.log(data)
-    cards.value = data
+    console.log(data);
+    cards.value = data;
   }
-})
+});
 </script>
 
 <template>
@@ -38,8 +37,8 @@ onMounted(async () => {
           />
         </figure>
         <div class="card-body">
-          <h2 class="card-title">{{ card.title || 'Untitled' }}</h2>
-          <p>{{ card.description || 'No description available.' }}</p>
+          <h2 class="card-title">{{ card.title || "Untitled" }}</h2>
+          <p>{{ card.description || "No description available." }}</p>
           <div class="card-actions justify-end">
             <button class="btn btn-primary">Buy Now</button>
           </div>

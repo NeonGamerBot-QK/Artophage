@@ -1,10 +1,9 @@
 <script setup>
-const supabase = useSupabaseClient();
-
 const loading = ref(false);
 const email = ref("");
 
 const handleLogin = async () => {
+  /**
   try {
     loading.value = true;
     const { error } = await supabase.auth.signInWithOtp({ email: email.value });
@@ -15,6 +14,7 @@ const handleLogin = async () => {
   } finally {
     loading.value = false;
   }
+  **/
 };
 </script>
 
