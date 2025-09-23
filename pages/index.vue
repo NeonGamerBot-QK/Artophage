@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref, onMounted } from "vue";
+import { usePostgres } from "~/server/utils/postgres";
 
 // Get runtime config
 const config = useRuntimeConfig();
@@ -10,14 +11,12 @@ const cards = ref<any[]>([]);
 
 // Load data when component is mounted
 onMounted(async () => {
-  const sql = usePostgres();
-  const { data, error } = await sql`select * from art;`;
-  if (error) {
-    console.error("Supabase error:", error);
-  } else {
-    console.log(data);
-    cards.value = data;
-  }
+  // const sql = usePostgres();
+  // const data = await sql`select * from art;`;
+//  else {
+    // console.log(data);
+    // cards.value = data;
+  // }
 });
 </script>
 

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import  md5  from "md5"
-const user = useSupabaseUser()
+const user = { value: null }
 let isLoggedIn = Boolean(user.value);
 let avatarURL = null;
 console.log(user.value, 'user')
