@@ -18,6 +18,6 @@ export default eventHandler(async (event) => {
     from: process.env.SMTP_FROM,
     subject: "Your Magic Login Link",
     html: `<p>Click <a href="${link}">here</a> to login. This link is valid for 15 minutes.</p>`,
-  })
+  });
   return { message: "Magic link sent" };
 });
