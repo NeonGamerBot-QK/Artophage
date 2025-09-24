@@ -9,5 +9,5 @@ export default eventHandler(async (event) => {
       statusMessage: "Missing email",
     });
   // send email via node mailer
-  const link = createMagicLink(email!)
+  const link = createMagicLink(email!);
 });
