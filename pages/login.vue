@@ -3,10 +3,15 @@ const loading = ref(false);
 const email = ref("");
 
 const handleLogin = async () => {
-  /**
   try {
     loading.value = true;
-    const { error } = await supabase.auth.signInWithOtp({ email: email.value });
+    const { error } = await fetch("/api/login-email", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ email: email.value }),
+    });
     if (error) throw error;
     alert("Check your email for the login link!");
   } catch (error) {
@@ -14,7 +19,6 @@ const handleLogin = async () => {
   } finally {
     loading.value = false;
   }
-  **/
 };
 </script>
 
