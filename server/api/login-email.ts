@@ -1,3 +1,5 @@
+import { createMagicLink } from "../utils/magiclink";
+
 export default eventHandler(async (event) => {
   const body = await readBody(event);
   const { email } = body;
@@ -7,4 +9,5 @@ export default eventHandler(async (event) => {
       statusMessage: "Missing email",
     });
   // send email via node mailer
+  const link = createMagicLink(email!)
 });
