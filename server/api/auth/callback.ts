@@ -1,4 +1,2 @@
-import { jwt } from "jsonwebtoken"
-export default defineEventHandler((event) => {
-
-})
+import { jwt } from "jsonwebtoken";
+export default defineEventHandler((event) => {});
