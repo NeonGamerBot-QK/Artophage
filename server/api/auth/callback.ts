@@ -10,10 +10,13 @@ export default defineEventHandler((event) => {
 
   try {
     const decoded = jwt.verify(token, process.env.JWT_SECRET); // or public key if RS256
-   console.log(decoded)
+    console.log(decoded);
     // valid token
     return { message: "JWT valid", user: decoded };
   } catch (err) {
-    throw createError({ statusCode: 403, statusMessage: "Invalid or expired token" });
+    throw createError({
+      statusCode: 403,
+      statusMessage: "Invalid or expired token",
+    });
   }
 });
