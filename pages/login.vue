@@ -1,7 +1,7 @@
 <script setup>
 const loading = ref(false);
 const email = ref("");
-
+const token = ref();
 const handleLogin = async () => {
   try {
     loading.value = true;
@@ -10,7 +10,7 @@ const handleLogin = async () => {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ email: email.value }),
+      body: JSON.stringify({ email: email.value, token: token.value }),
     });
     if (error) throw error;
     alert("Check your email for the login link!");
@@ -39,6 +39,12 @@ const handleLogin = async () => {
                 class="input"
                 placeholder="Email"
                 v-model="email"
+              />
+              <NuxtTurnstile
+                v-model="token"
+                name="token"
+                id="token"
+                :options="{ appearance: 'interaction-only' }"
               />
               <input
                 type="submit"
