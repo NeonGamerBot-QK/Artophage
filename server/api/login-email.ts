@@ -6,20 +6,20 @@ export default eventHandler(async (event) => {
   if (!body.token) {
     throw createError({
       statusCode: 422,
-      statusMessage: 'Token not provided.',
-    })
+      statusMessage: "Token not provided.",
+    });
   }
 
-  const res =  await verifyTurnstileToken(body.token)
-  console.log(res)
-  if(!res.success) {
+  const res = await verifyTurnstileToken(body.token);
+  console.log(res);
+  if (!res.success) {
     throw createError({
       statusCode: 403,
-      statusMessage: "Invalid turnstile"
-    })
+      statusMessage: "Invalid turnstile",
+    });
   }
   const { email } = body;
-  console.log(body)
+  console.log(body);
   if (!email)
     throw createError({
       statusCode: 400,
