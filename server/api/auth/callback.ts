@@ -2,7 +2,7 @@ import jwt from "jsonwebtoken";
 
 export default defineEventHandler(async (event) => {
   const query = getQuery(event);
-  const pg = usePostgres()
+  const pg = usePostgres();
   const token = query.token;
 
   if (!token) {
@@ -12,11 +12,11 @@ export default defineEventHandler(async (event) => {
   try {
     const decoded = jwt.verify(token, process.env.JWT_SECRET); // or public key if RS256
     console.log(decoded);
-    const user = await pg`select * from users where email = ${decoded.email}`
+    const user = await pg`select * from users where email = ${decoded.email}`;
     // valid token
-    if(!user) {
+    if (!user) {
       // create a user
-      pg`CREATE `
+      pg`CREATE `;
     }
     return { message: "JWT valid", user: decoded };
   } catch (err) {
