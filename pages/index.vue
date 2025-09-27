@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { ref, onMounted } from "vue";
-import { usePostgres } from "~/server/utils/postgres";
 
 // Get runtime config
 const config = useRuntimeConfig();

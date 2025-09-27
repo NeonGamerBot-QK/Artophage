@@ -31,8 +31,8 @@ export default eventHandler(async (event) => {
   console.log(`Magic link for ${email}: ${link}`);
   await transporter.sendMail({
     to: email,
-    from: `Artophage <${process.env.SMTP_FROM}>`,
-    subject: "Your Magic Login Link",
+    from: `"Artophage" <${process.env.SMTP_USER}>`,
+    subject: "Artophage: Your Magic Login Link",
     html: `<p>Click <a href="${link}">here</a> to login. This link is valid for 15 minutes.</p>`,
   });
   return { message: "Magic link sent" };
