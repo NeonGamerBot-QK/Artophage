@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import md5 from "md5";
-const user = await useFetch("/api/me").then(d=>d.data);
+const user = await useFetch("/api/me").then((d) => d.data);
 let isLoggedIn = Boolean(user.value);
 let avatarURL = null;
 console.log(user.value, "user");
