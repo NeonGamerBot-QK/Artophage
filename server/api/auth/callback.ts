@@ -14,6 +14,7 @@ export default defineEventHandler(async (event) => {
     throw createError({ statusCode: 401, statusMessage: "Missing token" });
   }
 
+
   try {
     const decoded = jwt.verify(token, process.env.JWT_SECRET); // or public key if RS256
     const user = (
@@ -37,7 +38,7 @@ export default defineEventHandler(async (event) => {
     setCookie(event, "session", sessionToken, {
       expires: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000),
     });
-    return { message: "JWT valid", user: decoded };
+    return sendRedirect(event, "/dashboard");
   } catch (err) {
     console.error(err);
     throw createError({

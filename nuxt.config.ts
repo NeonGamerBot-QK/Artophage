@@ -4,7 +4,13 @@ export default defineNuxtConfig({
   compatibilityDate: "2025-05-15",
   modules: ["@nuxtjs/turnstile"],
   devtools: { enabled: true },
-
+  // nitro: {
+  //   routeRules: {
+  //     '/api/me': {
+  //       cache: { maxAge: 60 } // seconds
+  //     }
+  //   }
+  // },
   turnstile: {
     siteKey: process.env.NUXT_PUBLIC_TURNSTILE_SITE_KEY,
   },

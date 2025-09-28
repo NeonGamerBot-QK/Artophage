@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import md5 from "md5";
-const user = { value: null };
+const user = await useFetch("/api/me").then(d=>d.data);
 let isLoggedIn = Boolean(user.value);
 let avatarURL = null;
 console.log(user.value, "user");
@@ -30,7 +30,7 @@ if (isLoggedIn) {
           </div>
           <ul
             tabindex="0"
-            class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
+            class="menu menu-sm dropdown-content rounded-box z-1 mt-3 w-52 p-2"
           >
             <li><a href="/api/logout">Logout</a></li>
           </ul>
