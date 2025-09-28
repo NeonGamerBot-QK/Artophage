@@ -14,7 +14,6 @@ export default defineEventHandler(async (event) => {
     throw createError({ statusCode: 401, statusMessage: "Missing token" });
   }
 
-
   try {
     const decoded = jwt.verify(token, process.env.JWT_SECRET); // or public key if RS256
     const user = (
