@@ -1,7 +1,7 @@
 # Artopgae [ WIP]
+
 > [!NOTE]
 > most features dont work rn and are major wip, fixed features are login rn
-
 
 ![banner](./assets/art/banner%201.png)
 I love eating art and displaying it!
